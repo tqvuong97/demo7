@@ -1,0 +1,11 @@
+<% if reply.comment_id == comment.id %>
+
+<div>   &nbsp &nbsp &nbsp <b><%= reply.user.username %></b>:
+ <%= reply.content %></br>
+   &nbsp &nbsp &nbsp<span class="timestamp"><%= reply.created_at.to_s %></span>   
+     
+  <%= link_to 'Delete', [reply.article, reply],
+                  method: :delete, class: "button is-danger", data: { confirm: 'Are you sure?' } %>
+ </div>
+ <%end%>
+

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  content: MyString
+  user: one
+  article: one
+  postable: one
+  postable_type: Postable
+
+two:
+  content: MyString
+  user: two
+  article: two
+  postable: two
+  postable_type: Postable

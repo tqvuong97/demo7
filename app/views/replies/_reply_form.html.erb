@@ -1,0 +1,12 @@
+<%= form_for( :article,:article.replies.new) do |form| %>
+  <p>
+  	<%= form.hidden_field(:comment_id, @comment.id) %>
+    <%= form.label :content %><br>
+    <%= form.text_area :content %>
+    
+     
+  </p>
+  <p>
+    <%= form.submit 'Reply' %>
+  </p>
+<% end %>

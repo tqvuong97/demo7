@@ -1,0 +1,29 @@
+</br></br>
+<div>  <b><%= comment.user.username %></b>:
+ <%= comment.content %></br>
+  <span class="timestamp"><%= comment.created_at.to_s %></span>   
+     
+  <%= link_to 'Delete', [comment.article, comment],
+                  method: :delete, class: "button is-danger", data: { confirm: 'Are you sure?' } %>
+
+
+
+<%= render @article.replies.order(created_at: :desc),comment: comment %>
+
+
+
+
+
+<%= form_with(model: [ @article, @article.replies.build ], local: true) do |form| %>
+  <p>
+   <%= form.hidden_field(:comment_id, value: comment.id) %>
+   <%= form.hidden_field(:article_id, value: comment.article.id) %>
+    <%= form.label :content %><br>
+    <%= form.text_area :content %>
+  </p>
+  <p>
+    <%= form.submit 'Reply' %>
+  </p>
+<% end %>
+</div>
+

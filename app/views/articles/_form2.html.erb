@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+  <h1>Detail Article</h1>
+  <%= form_with(model: article, local: true) do |form| %>
+  <% if article.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(article.errors.count, "error") %> prohibited this article from being saved:</h2>
+
+      <ul>
+      <% article.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<b><%= article.uploader %></b>
+  <div class="form-group">
+    <%= form.label :title %>
+    <%= form.text_field :title ,class: "form-control"%>
+    
+    
+  </div>
+
+  <div class="form-group">
+    <%= form.label :description %>
+    <%= form.text_area :description ,row: "5" ,class: "form-control"%>
+  </div>
+ 
+<% if (current_user.username)== (article.uploader)%>
+  <div class="actions">
+    <%= form.submit "Edit" , class: "btn btn-success"%>
+  </div>
+  <%end %>
+  
+<% end %>
+
+<h2>Comment</h2>
+<%= form_for @comment do |comment_form|%>
+<%= comment_form.text_area :content %>
+<%= comment_form.submit 'Post comment'%>
+<%end %>
+
+</body>
+</html>

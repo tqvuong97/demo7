@@ -1,0 +1,49 @@
+<!-- <nav class="navbar navbar-inverse">
+  <div class="container">
+    <div class="navbar-header">
+      <%= link_to 'Vuong', articles_path, class: 'navbar-brand' %>
+    </div>
+    <div id="navbar">
+      <ul class="nav navbar-nav">
+        <li><%= link_to 'Home', articles_path %></li>
+      </ul>
+      <ul class="nav navbar-nav">
+        <li><%= link_to 'Post', posts_path %></li>
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+        <% if user_signed_in? %>    
+            <li><%= current_user.username %></li>
+            <li><%= link_to 'Profile', edit_user_registration_path %></li>
+            <li><%= link_to 'Log out', destroy_user_session_path, method: :delete %></li>
+        <% else %>
+          <li><%= link_to 'Log In', new_user_session_path %></li>
+          <li><%= link_to 'Sign Up', new_user_registration_path %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</nav> -->
+
+
+ <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+     <%= link_to 'Vuong', articles_path, class: 'navbar-brand' %>
+    </div>
+    <ul class="nav navbar-nav">
+     <li><%= link_to 'Home', articles_path %></li>
+      <li><%= link_to 'Post', posts_path %></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <% if user_signed_in? %>    
+            <li><div class="text-primary"><%=current_user.username %></div></li>
+            <li><%= link_to 'Profile', edit_user_registration_path%></li>
+            <li><%= link_to 'Log out', destroy_user_session_path, method: :delete %></li>
+        <% else %>
+      <li><%= link_to 'Log In', new_user_session_path ,class: "glyphicon glyphicon-user"%></li>
+      <li><%= link_to 'Sign Up', new_user_registration_path , class: "glyphicon glyphicon-log-in" %></li>
+      <%end%>
+    </ul>
+  </div>
+</nav> 

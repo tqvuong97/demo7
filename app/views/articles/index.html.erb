@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+
+<p id="notice"><%= notice %></p>
+<div class="container">
+<h1 class="text-center ">Homepage</h1>
+<%= link_to 'New Article', new_article_path, class: "btn btn-success navbar-right " %>
+
+<br><br><br>
+
+<div class="container col-md-4">
+  <% @articles.each do |article| %>
+  
+    <%= link_to article.title,article ,class: "btn btn-info" %>
+    <%= article.created_at %>
+    <p><i><%= article.comments.count %> comments</i></p>
+  <div class="panel panel-default">
+
+    <div class="panel-body"><%= article.description %></div>
+    
+  </div>
+  
+   <% end %>
+   <br>
+</div>
+
+
+</div>
+
+</body>
+</html>
+
+
+
